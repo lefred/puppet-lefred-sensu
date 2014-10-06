@@ -6,7 +6,7 @@ class sensu::repository {
 			"sensu":
 				descr    => "Sensu",
 				enabled  => 1,
-				baseurl  => "http://repos.sensuapp.org/yum/el/$releasever/$basearch/",
+				baseurl  => "http://repos.sensuapp.org/yum/el/\$releasever/\$basearch/",
 				gpgcheck => 0;
 		}
 	}
