@@ -5,8 +5,11 @@ class sensu::config {
 
   file {
 	"/etc/sensu/conf.d/relay.json":
-		ensure => present,
+		ensure  => present,
 		content => template("sensu/relay.json.erb");
+        "/etc/sensu/plugins/load-metrics.rb":
+		ensure  => present,
+		source  => "puppet:///modules/sensu/plugins/load-metrics.rb";
   }
 
 }
