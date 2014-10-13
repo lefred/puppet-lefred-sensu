@@ -1,4 +1,4 @@
-class sensu::client::galera (host="127.0.0.1",port="3306",username="root") {
+class sensu::client::galera ($host="127.0.0.1",$port="3306",$username="root") {
 
   $sensu_host     = $host
   $sensu_port     = $port
