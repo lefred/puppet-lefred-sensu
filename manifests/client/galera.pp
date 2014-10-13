@@ -1,4 +1,4 @@
-class sensu::client::galera ($host="127.0.0.1",$port="3306",$username="root") {
+class sensu::client::galera {
 
   $sensu_host     = $host
   $sensu_port     = $port
@@ -10,6 +10,12 @@ class sensu::client::galera ($host="127.0.0.1",$port="3306",$username="root") {
                 source  => "puppet:///modules/sensu/plugins/percona-cluster-metrics.rb",
 		require => Class['sensu::client'],
   }
+
+
+}
+
+define sensu:client:galera_metrics ( $host="127.0.0.1", $port="3306", $username="root", $password ) {
+
 
 
 }
