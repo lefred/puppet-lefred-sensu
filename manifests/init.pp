@@ -1,4 +1,4 @@
-class sensu ($graphite_host="localhost", $graphite_port="2003"){
+class sensu ($graphite_host="localhost", $graphite_port="2003", $sensu_interval="10"){
 
   include sensu::packages
   include sensu::repository
