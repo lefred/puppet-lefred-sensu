@@ -10,7 +10,7 @@ class sensu::config {
 		content => template("sensu/relay.json.erb");
         "/etc/sensu/conf.d/metrics.json":
 		ensure  => present,
-		source  => template("sensu/load-metrics.rb";
+		source  => template("sensu/load-metrics.rb");
         "/etc/sensu/plugins/load-metrics.rb":
 		ensure  => present,
 		source  => "puppet:///modules/sensu/plugins/load-metrics.rb";
