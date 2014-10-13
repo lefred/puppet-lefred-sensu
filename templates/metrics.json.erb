@@ -1,0 +1,12 @@
+{
+  "checks": {
+    "load_metrics": {
+      "type": "metric",
+      "command": "load-metrics.rb",
+      "interval": <%= @sensu_interval %>,
+      "subscribers": ["all"],
+      "handlers": ["relay"]
+    }
+  }
+}
+
