@@ -11,6 +11,12 @@ class sensu::client {
                 content => template("sensu/client.json.erb");
   }
 
+  package {
+	"sensu-plugin":
+		ensure   => present,
+		provider => gem,
+  }
+
   Class['sensu::repository']->Class['sensu::packages']->Class['sensu::service']
 
 }
