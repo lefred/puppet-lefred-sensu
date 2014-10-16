@@ -9,6 +9,6 @@ class sensu::client::galera ($sensu_interval=$sensu::sensu_interval) {
         "/etc/sensu/plugins/load-metrics.rb":
                 ensure  => present,
                 source  => "puppet:///modules/sensu/plugins/load-metrics.rb";
-
+  }
 
 }
