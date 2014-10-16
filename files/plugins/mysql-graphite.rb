@@ -34,7 +34,7 @@ require 'rubygems' if RUBY_VERSION < '1.9.0'
 require 'sensu-plugin/metric/cli'
 require 'mysql2'
 require 'socket'
-require 'inifile'
+#require 'inifile'
 
 class Mysql2Graphite < Sensu::Plugin::Metric::CLI::Graphite
 

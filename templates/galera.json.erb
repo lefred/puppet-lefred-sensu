@@ -1,0 +1,13 @@
+{
+  "checks": {
+    "percona-cluster-metrics": {
+      "type": "metric",
+      "command": "percona-cluster-metrics.rb -h localhost -u <%= @sensu_mysql_username %> -p <%= @sensu_mysql_password %>",
+      "interval": <%= @sensu_interval %>,
+      "subscribers": ["all"],
+      "handlers": ["relay"]
+    }
+  }
+}
+
+

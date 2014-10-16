@@ -1,0 +1,12 @@
+{
+  "checks": {
+    "mysql-graphite": {
+      "type": "metric",
+      "command": "mysql-graphite.rb -h localhost -u <%= @sensu_mysql_username %> -p <%= @sensu_mysql_password %>",
+      "interval": <%= @sensu_interval %>,
+      "subscribers": ["all"],
+      "handlers": ["relay"]
+    }
+  }
+}
+
