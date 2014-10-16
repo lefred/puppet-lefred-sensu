@@ -1,4 +1,4 @@
-class sensu::client::galera ($sensu_interval=$sensu::sensu_interval) {
+class sensu::client::metrics ($sensu_interval=$sensu::sensu_interval) {
 
   $sensu_interval = $sensu_interval
 
