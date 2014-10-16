@@ -1,7 +1,5 @@
 class sensu::client::metrics ($sensu_interval=$sensu::interval) {
 
-  $sensu_interval = $sensu_interval
-
   file {
         "/etc/sensu/conf.d/metrics.json":
                 ensure  => present,

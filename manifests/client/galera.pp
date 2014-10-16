@@ -2,7 +2,6 @@ class sensu::client::galera ($username=root, $sensu_interval=$sensu::interval, $
 
   $sensu_mysql_username = $username
   $sensu_mysql_password = $password
-  $sensu_interval = $sensu_interval
 
 
   file {

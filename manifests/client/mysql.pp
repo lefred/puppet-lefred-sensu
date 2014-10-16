@@ -2,7 +2,6 @@ class sensu::client::mysql ($username=root, $sensu_interval=$sensu::interval, $p
 
   $sensu_mysql_username = $username
   $sensu_mysql_password = $password
-  $sensu_interval = $sensu_interval
 
   file {
         "/etc/sensu/plugins/mysql-graphite.rb":
