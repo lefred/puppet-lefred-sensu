@@ -3,7 +3,7 @@ class sensu::client {
   $graphite_host = $sensu::graphite_host
   $graphite_port = $sensu::graphite_port
 
-  include sensu::service
+  include sensu::client::service
 
   file {
         "/etc/sensu/conf.d/client.json":
@@ -17,6 +17,6 @@ class sensu::client {
 		provider => gem,
   }
 
-  Class['sensu::repository']->Class['sensu::packages']->Class['sensu::service']
+  Class['sensu::repository']->Class['sensu::packages']->Class['sensu::client::service']
 
 }

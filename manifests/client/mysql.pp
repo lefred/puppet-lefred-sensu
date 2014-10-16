@@ -10,7 +10,17 @@ class sensu::client::mysql ($username=root, $sensu_interval=$sensu::interval, $p
 		require => Class['sensu::client'];
         "/etc/sensu/conf.d/mysql.json":
                 ensure  => present,
-                content => template("sensu/mysql.json.erb");
+                content => template("sensu/mysql.json.erb"),
+		notify  => Service['sensu-client'];
+  }
+
+  package {
+        "inifile":
+                ensure   => present,
+                provider => gem;
+        "mysql2":
+                ensure   => present,
+                provider => gem;
   }
 
 

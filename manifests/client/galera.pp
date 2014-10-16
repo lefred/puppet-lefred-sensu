@@ -11,7 +11,8 @@ class sensu::client::galera ($username=root, $sensu_interval=$sensu::interval, $
 		require => Class['sensu::client'];
    	"/etc/sensu/conf.d/galera.json":
                 ensure  => present,
-                content => template("sensu/galera.json.erb");
+                content => template("sensu/galera.json.erb"),
+		notify  => Service['sensu-client'];
   }
 
 }

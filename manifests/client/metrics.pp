@@ -6,7 +6,9 @@ class sensu::client::metrics ($sensu_interval=$sensu::interval) {
                 content => template("sensu/metrics.json.erb");
         "/etc/sensu/plugins/load-metrics.rb":
                 ensure  => present,
-                source  => "puppet:///modules/sensu/plugins/load-metrics.rb";
+                source  => "puppet:///modules/sensu/plugins/load-metrics.rb",
+		notify  => Service['sensu-client'];
+	
   }
 
 }
