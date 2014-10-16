@@ -1,4 +1,4 @@
-class sensu::client::galera ($username=root, $sensu_interval=$sensu::sensu_interval, $password) {
+class sensu::client::galera ($username=root, $sensu_interval=$sensu::interval, $password) {
 
   $sensu_mysql_username = $username
   $sensu_mysql_password = $password
