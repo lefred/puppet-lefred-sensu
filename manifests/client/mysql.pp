@@ -14,11 +14,24 @@ class sensu::client::mysql ($username=root, $sensu_interval=$sensu::interval, $p
 		notify  => Service['sensu-client'];
   }
 
+  case $::osfamily {
+        'RedHat': {
+         	package {
+			"mysql2":
+                		ensure   => present,
+                		provider => gem;
+		}
+        }
+        'Debian': {
+         	package {
+			"ruby-mysql2":
+                		ensure   => present;
+		}
+        }
+  }
+
   package {
         "inifile":
-                ensure   => present,
-                provider => gem;
-        "mysql2":
                 ensure   => present,
                 provider => gem;
   }

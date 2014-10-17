@@ -1,6 +1,6 @@
 class sensu::packages {
 
-    case $::osfamily {
+   case $::osfamily {
 	'RedHat': {
 		$require = Yumrepo['sensu']
 	}
