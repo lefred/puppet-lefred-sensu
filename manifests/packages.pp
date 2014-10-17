@@ -15,20 +15,5 @@ class sensu::packages {
 		ensure => "latest"; 
    }
 
-   file {
-    	"/etc/sensu/extensions/handlers/":
-		ensure 	=> present,
-		recurse	=> true,
-		require => Package['sensu'],
-		source	=> "puppet:///modules/sensu/handlers/";
- 	"/etc/sensu/extensions/mutators/":
-		ensure 	=> present,
-		recurse	=> true,
-		require => Package['sensu'],
-		source	=> "puppet:///modules/sensu/mutators/";
-
-   }
-
-
 }
 

@@ -1,15 +1,4 @@
-class sensu::client {
-
-  $graphite_host = $sensu::graphite_host
-  $graphite_port = $sensu::graphite_port
-
-  include sensu::client::service
-
-  file {
-        "/etc/sensu/conf.d/client.json":
-                ensure  => present,
-                content => template("sensu/client.json.erb");
-  }
+class sensu::client ($redis_host="localhost", $rabbitmq_host="localhost", $rabbitmq_password=$rabbitmq::config::sensu::rabbitmq_sensu_password) {
 
   package {
 	"sensu-plugin":
@@ -17,6 +6,6 @@ class sensu::client {
 		provider => gem,
   }
 
-  Class['sensu::repository']->Class['sensu::packages']->Class['sensu::client::service']
+  Class['sensu']->Class['sensu::client::config']->Class['sensu::client::service']
 
 }

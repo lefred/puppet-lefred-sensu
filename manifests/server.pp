@@ -1,9 +1,5 @@
-class sensu::server {
+class sensu::server ($graphite_host="localhost", $graphite_port="2003") {
 
-  
-  include sensu::config
-  include sensu::service
-
-  Class['sensu::repository']->Class['sensu::packages']->Class['sensu::config']->Class['sensu::service']
+  Class['sensu']->Class['sensu::server::config']->Class['sensu::server::service']
 
 }
