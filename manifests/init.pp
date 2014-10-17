@@ -1,7 +1,7 @@
 class sensu ($interval="10"){
 
-  include sens::repository
-  include sens::packages
+  include sensu::repository
+  include sensu::packages
 
   Class['sensu::repository']->Class['sensu::packages']
 
