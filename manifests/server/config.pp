@@ -8,7 +8,6 @@ class sensu::server::config {
 	"/etc/sensu/conf.d/relay.json":
 		ensure  => present,
 		content => template("sensu/relay.json.erb");
-		ensure 	=> present;
     	"/etc/sensu/extensions/handlers/":
 		recurse	=> true,
 		require => Package['sensu'],
