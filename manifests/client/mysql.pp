@@ -19,6 +19,8 @@ class sensu::client::mysql ($username=root, $sensu_interval=$sensu::interval, $p
          	package {
 			"ruby-devel":
 				ensure   => present;
+			"mysql-devel":
+				ensure   => present;
 			"mysql2":
                 		ensure   => present,
                 		provider => gem,
