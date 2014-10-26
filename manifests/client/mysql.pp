@@ -17,9 +17,12 @@ class sensu::client::mysql ($username=root, $sensu_interval=$sensu::interval, $p
   case $::osfamily {
         'RedHat': {
          	package {
+			"ruby-devel":
+				ensure   => present;
 			"mysql2":
                 		ensure   => present,
-                		provider => gem;
+                		provider => gem,
+				require  => Package['ruby-devel'];
 		}
         }
         'Debian': {
