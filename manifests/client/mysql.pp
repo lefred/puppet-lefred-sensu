@@ -37,9 +37,6 @@ class sensu::client::mysql ($username=root, $sensu_interval=$sensu::interval, $p
                 		ensure   => present,
                 		provider => gem,
 				require  => Package['ruby-devel'];
-			"mysql-devel":
-				ensure	 => present,
-				name     => 
 		}
         }
         'Debian': {
