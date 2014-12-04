@@ -13,7 +13,7 @@ class sensu::client::mysql ($username=root, $sensu_interval=$sensu::interval, $p
                 content => template("sensu/mysql.json.erb"),
 		notify  => Service['sensu-client'];
   }
-  info("FREEEED  !!")
+  info("FREEEED $::osfamily  !!")
 
   case $::osfamily {
         'RedHat': {
