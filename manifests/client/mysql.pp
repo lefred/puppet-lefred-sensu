@@ -26,6 +26,25 @@ class sensu::client::mysql ($username=root, $sensu_interval=$sensu::interval, $p
         } elsif $mysql_version == "10" {
             $mysql_ver="10.0"
         }
+        $mysql_distro =  hiera('mysql::mysql_distro', "community")
+        if $mysql_distro == "community" {
+               package {
+			"mysql-community-server":
+				ensure => present;
+		}
+        } elif $mysql_distro == "percona" {
+               package {
+			"Percona-Server-devel-$mysql_ver":
+				ensure => present;
+		}
+
+	} elif $mysql_distro == "mariadb" {
+               package {
+			"MariaDB-server-devel":
+				ensure => present;
+		}
+
+	}
  
          	package {
 			"ruby-devel":
