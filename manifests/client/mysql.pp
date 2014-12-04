@@ -13,32 +13,27 @@ class sensu::client::mysql ($username=root, $sensu_interval=$sensu::interval, $p
                 content => template("sensu/mysql.json.erb"),
 		notify  => Service['sensu-client'];
   }
-  info("FREEEED $::osfamily  $mysql::mysql_version !!")
 
   case $::osfamily {
         'RedHat': {
         $mysql_version = hiera('mysql::mysql_version', '5.6')
         if $mysql_version == "5.7" {
-            info("FREEEED Your are brave ! Using 5.7 !!")
             $mysql_ver="57"
         } elsif $mysql_version == "5.6" {
-            info("FREEEED Congrats ! Using 5.6 !!")
             $mysql_ver="56"
         } elsif $mysql_version == "5.5" {
-            info("FREEEED You are conservative ! Using 5.5 !!")
             $mysql_ver="55"
         } elsif $mysql_version == "10" {
-            info("FREEEED You go to something new...  ! Using 10 !!")
             $mysql_ver="10.0"
         }
  
          	package {
 			"ruby-devel":
 				ensure   => present;
-	#		"mysql2":
-        #        		ensure   => present,
-        #        		provider => gem,
-	#			require  => Package['ruby-devel'];
+			"mysql2":
+                		ensure   => present,
+                		provider => gem,
+				require  => Package['ruby-devel'];
 		}
         }
         'Debian': {
