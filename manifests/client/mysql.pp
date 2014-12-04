@@ -17,7 +17,7 @@ class sensu::client::mysql ($username=root, $sensu_interval=$sensu::interval, $p
 
   case $::osfamily {
         'RedHat': {
-                  if $mysql::mysql_version == "5.7" {
+        if $mysql::mysql_version == "5.7" {
             info("FREEEED Your are brave ! Using 5.7 !!")
             $mysql_ver="57"
         } elsif $mysql::mysql_version == "5.6" {
@@ -34,10 +34,10 @@ class sensu::client::mysql ($username=root, $sensu_interval=$sensu::interval, $p
          	package {
 			"ruby-devel":
 				ensure   => present;
-			"mysql2":
-                		ensure   => present,
-                		provider => gem,
-				require  => Package['ruby-devel'];
+	#		"mysql2":
+        #        		ensure   => present,
+        #        		provider => gem,
+	#			require  => Package['ruby-devel'];
 		}
         }
         'Debian': {
