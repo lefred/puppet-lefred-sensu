@@ -110,7 +110,9 @@ class Mysql2Graphite < Sensu::Plugin::Metric::CLI::Graphite
         'Select_range' =>           'selectRange',
         'Select_range_check' =>     'selectRange_check',
         'Select_scan' =>            'selectScan',
-        'Slow_queries' =>           'slowQueries'
+        'Slow_queries' =>           'slowQueries',
+        'Created_tmp_disk_tables' => 'tmp_tables_disk',
+        'Created_tmp_tables'      => 'tmp_tables'
       },
       'querycache' => {
         'Qcache_queries_in_cache' =>  'queriesInCache',
@@ -188,7 +190,9 @@ class Mysql2Graphite < Sensu::Plugin::Metric::CLI::Graphite
         'Innodb_rows_updated' =>              'rowsUpdated',
         'Innodb_rows_read' =>                 'rowsRead',
         'Innodb_rows_deleted' =>              'rowsDeleted',
-        'Innodb_rows_inserted' =>             'rowsInserted'
+        'Innodb_rows_inserted' =>             'rowsInserted',
+        'Innodb_buffer_pool_read_requests' => 'BPreadRequests',
+        'Innodb_buffer_pool_reads'         => 'BPreads'
       },
       'configuration' => {
         'Max_prepared_stmt_count' =>          'MaxPreparedStmtCount'
