@@ -21,7 +21,6 @@ class sensu::client::config {
  		notify  => Service['sensu-client'],
         require => Package['sensu'],
 		content => template("sensu/rabbitmq.json.erb");
-		content => template("sensu/redis.json.erb");
   }
 
 }
