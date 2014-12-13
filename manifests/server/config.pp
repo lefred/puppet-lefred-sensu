@@ -17,6 +17,11 @@ class sensu::server::config {
 		recurse	=> true,
 		require => Package['sensu'],
 		source	=> "puppet:///modules/sensu/mutators/";
+    "/etc/sensu/conf.d/redis.json":
+        ensure  => present,
+        notify  => Service['sensu-client'],
+        require => Package['sensu'],
+        content => template("sensu/redis.json.erb");
   }
 
 }
