@@ -6,25 +6,21 @@ class sensu::client::config {
 
   file {
         "/etc/sensu/conf.d/client.json":
-                ensure  => present,
+        ensure  => present,
  		notify  => Service['sensu-client'],
-                require => Package['sensu'],
-                content => template("sensu/client.json.erb");
+        require => Package['sensu'],
+        content => template("sensu/client.json.erb");
 	"/etc/sensu/ssl/":
 		ensure  => present,
-                recurse => true,
-                require => Package['sensu'],
+        recurse => true,
+        require => Package['sensu'],
  		notify  => Service['sensu-client'],
                 source  => "puppet:///modules/sensu/ssl/";
 	"/etc/sensu/conf.d/rabbitmq.json":
 		ensure  => present,
  		notify  => Service['sensu-client'],
-                require => Package['sensu'],
+        require => Package['sensu'],
 		content => template("sensu/rabbitmq.json.erb");
-	"/etc/sensu/conf.d/redis.json":
-		ensure  => present,
- 		notify  => Service['sensu-client'],
-                require => Package['sensu'],
 		content => template("sensu/redis.json.erb");
   }
 
