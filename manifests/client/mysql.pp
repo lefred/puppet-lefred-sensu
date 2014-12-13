@@ -71,6 +71,8 @@ class sensu::client::mysql ($username=root, $sensu_interval=$sensu::interval, $p
                 provider => gem;
   }
 
+ Class['sensu::client']->Class['sensu::client::mysql']
+
 
 }
 

@@ -2,7 +2,7 @@ class sensu::client ($redis_host="localhost", $rabbitmq_host="localhost", $rabbi
 
   include sensu::client::config
   include sensu::client::service
-
+  
   package {
 	"sensu-plugin":
 		ensure   => present,
