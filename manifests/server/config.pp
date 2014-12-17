@@ -3,6 +3,7 @@ class sensu::server::config {
   $graphite_host  = $sensu::server::graphite_host
   $graphite_port  = $sensu::server::graphite_port
   $sensu_interval = $sensu::interval
+  $sensu_redis_host  = $sensu::server::redis_host
 
   file {
 	"/etc/sensu/conf.d/relay.json":

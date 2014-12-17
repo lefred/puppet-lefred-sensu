@@ -1,6 +1,5 @@
 class sensu::client::config {
 
-  $sensu_redis_host        = $sensu::client::redis_host
   $sensu_rabbitmq_host     = $sensu::client::rabbitmq_host
   $sensu_rabbitmq_password = $sensu::client::rabbitmq_password
 

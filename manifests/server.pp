@@ -1,4 +1,4 @@
-class sensu::server ($graphite_host="localhost", $graphite_port="2003") {
+class sensu::server ($redis_host="localhost", $graphite_host="localhost", $graphite_port="2003") {
 
   include sensu::server::config
   include sensu::server::service

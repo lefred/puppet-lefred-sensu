@@ -15,4 +15,6 @@ class sensu::client::galera ($username=root, $sensu_interval=$sensu::interval, $
 		notify  => Service['sensu-client'];
   }
 
+  Class['sensu::client']->Class['sensu::client::galera']
+
 }
