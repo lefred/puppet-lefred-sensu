@@ -1,4 +1,4 @@
-class sensu::client::galera ($username=root, $sensu_interval=$sensu::interval, $password) {
+class sensu::client::galera {
 
   $sensu_mysql_username = $username
   $sensu_mysql_password = $password
@@ -9,10 +9,6 @@ class sensu::client::galera ($username=root, $sensu_interval=$sensu::interval, $
 		ensure  => present,
                 source  => "puppet:///modules/sensu/plugins/percona-cluster-metrics.rb",
 		require => Class['sensu::client'];
-   	"/etc/sensu/conf.d/galera.json":
-                ensure  => present,
-                content => template("sensu/galera.json.erb"),
-		notify  => Service['sensu-client'];
   }
 
   Class['sensu::client']->Class['sensu::client::galera']
